@@ -1,0 +1,38 @@
+%h1 Student Details
+- if @student.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(@student.errors.count, "error")
+      Prohibited the details from being saved:
+    %ul
+      - @student.errors.full_messages.each do |msg|
+        %li= msg
+= form_for @student , url: students_create_path, html: { multipart: true } do |form|
+  %p
+    = form.label :name
+    %br/
+    = form.text_field :name
+  %p
+    = form.label :level
+    = form.collection_select(:level_id, Level.all, :id, :level_number)
+  %p
+    = form.label :english_marks
+    %br/
+    = form.text_field :english_marks
+  %p
+    = form.label :math_marks
+    %br/
+    = form.text_field :math_marks
+  %p
+    = form.label :science_marks
+    %br/
+    = form.text_field :science_marks
+  %p
+    = form.file_field :avatar
+
+  %p
+    = form.submit
+  
+  / = submit_tag "Create"
+%hr/
+= link_to 'Back', {:action => 'list'}

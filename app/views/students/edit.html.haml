@@ -1,0 +1,15 @@
+%h1 Edit Student Detail
+= form_for @student, :url => {:action => "update", :id => @student} do |f|
+  %p
+    Name: #{f.text_field 'name'}
+  %p
+    = f.collection_select :level_id, Level.all, :id, :level_number
+  %p
+    English marks: #{f.text_field 'english_marks'}
+  %p
+    Math marks: #{f.text_field 'math_marks'}
+  %p
+    Science marks: #{f.text_field 'science_marks'}
+  = f.submit "Save changes"
+%hr/
+= link_to 'Back', {:action => 'list'}

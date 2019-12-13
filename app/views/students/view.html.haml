@@ -1,0 +1,21 @@
+%h1 School Info
+%p These are the levels in our school.
+%table#levels
+  %tr
+    %th Levels
+  - Level.find_each do |c|
+    %tr
+      %td= link_to c.id, :action => "show_levels", :id => c.id
+%hr/
+%h1 Student Info
+- if @students.blank?
+  %p There are no students in the school.
+- else
+  %p These are the students in our school.
+  %table#students
+    %tr
+      %th Names
+    - @students.each do |c|
+      %tr
+        %td= link_to c.name, {:action => 'show', :id => c.id}
+        %td= image_tag c.avatar.url(:thumb) 

@@ -1,0 +1,23 @@
+%nav.navbar.navbar-inverse
+  .container-fluid
+    .navbar-header
+      %a.navbar-brand{:href => "#"} WebSiteName
+    %ul.nav.navbar-nav
+      %li.active
+        = link_to('home',  students_list_path)
+      %li
+        = link_to('About Us',  home_about_us_path)
+      %li
+        = link_to('Branches',  home_branches_path)
+      %li
+        = link_to('Contact Us',  home_contact_us_path)
+    %ul.nav.navbar-nav.navbar-right.nav-pills
+      - if user_signed_in? 
+        %li
+          / = redirect_to students_list_path 
+          = link_to('Logout', destroy_user_session_path, method: :delete)
+      - else
+        %li
+          / = redirect_to students_view_path 
+          = link_to('Login', new_user_session_path)
+          = link_to('Register', new_user_registration_path)

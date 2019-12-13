@@ -1,0 +1,13 @@
+<h1>Level:<%= @level.level_number %></h1>
+<table>
+	<th>
+		<td>Names</td>
+	</th>
+	<% @level.students.each do |c| %>
+		<tr>
+			<td><%= c.name %></td>
+		</tr>
+	<% end -%>
+</table>
+<hr>
+<%= link_to 'Back', {:action => 'list'} %>

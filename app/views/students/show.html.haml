@@ -1,0 +1,36 @@
+%div{align: "center"}
+  %h1 Progress Report
+  %strong Name:
+  = @student.name
+  %p
+    %strong Level:
+    = @student.level.level_number
+    %br/
+    - if @student.english_marks < 35
+      %h4{style: "color:Red;"}
+        %strong English marks:
+        = @student.english_marks
+    - else
+      %strong English marks:
+      = @student.english_marks
+      %br/
+    - if @student.math_marks < 35
+      %h4{style: "color:Red;"}
+        %strong Math marks:
+        = @student.math_marks
+    - else
+      %strong Math marks:
+      = @student.math_marks
+      %br/
+    - if @student.science_marks < 35
+      %h4{style: "color:Red;"}
+        %strong Science marks:
+        =@student.science_marks
+    - else
+      %strong Science marks:
+      = @student.science_marks
+      %br/
+    Total:#{@student.english_marks+@student.math_marks+@student.science_marks}
+    %br/
+    Percentage:#{(@student.english_marks+@student.math_marks+@student.science_marks)/3}%
+    = link_to 'Back', {:action => 'list'}
