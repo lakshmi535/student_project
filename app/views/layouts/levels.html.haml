@@ -1,0 +1,10 @@
+%h1 School Info
+%p These are the levels in our school.
+%table#levels
+  %tr
+    %th Levels
+  - Level.find_each do |c|
+    %tr
+      %td= link_to c.id, :action => "show_levels", :id => c.id
+= link_to 'Back', {:action => 'list'}
+%hr/

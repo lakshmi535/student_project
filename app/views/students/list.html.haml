@@ -1,30 +1,39 @@
-%h1 School Info
-%p These are the levels in our school.
-%table#levels
-  %tr
-    %th Levels
-  - Level.find_each do |c|
-    %tr
-      %td= link_to c.id, :action => "show_levels", :id => c.id
-%hr/
-%h1 Student Info
-- if @students.blank?
-  %p There are no students in the school.
-- else
-  %p These are the students in our school.
-  %table#students
-    %tr
-      %th Names
-    - @students.each do |c|
-      %tr
-        %td= link_to c.name, {:action => 'show', :id => c.id}
-        %td= image_tag c.avatar.url(:thumb) 
-        %td
-          = link_to 'Edit', {:action => "edit", :id => c.id}
-          |
-        %td= link_to "Delete", {:action => 'delete', :id => c.id}, data: {:confirm => "Are you sure you want to delete this record?"}
 
+= link_to "Add new Student", {:action => 'new'}
 %hr/
-%p= link_to "Add new Student", {:action => 'new'}
+= link_to "Add new marks", new_mark_path
 
-/ = image_tag @student.avatar.url(:medium)
+  
+
+/ %table#levels
+/   %tr
+/     %th Levels
+/   - Level.find_each do |c|
+/     %tr
+/       %td= link_to c.id, :action => "show_levels", :id => c.id
+/ %p
+/ %hr/
+/ = link_to "Add new Student", {:action => 'new'}
+
+
+/ %h1 Student Info
+/ - if @students.blank?
+/   %p There are no students in the school.
+/ - else
+/   %p These are the students in our school.
+/   %table#students
+/     %tr
+/       %th Names
+/       %th Levels
+/     - @students.each do |c|
+/       %tr
+
+/         %td= image_tag c.avatar.url(:thumb)
+/         %td= link_to c.name, {:action => 'show', :id => c.id}
+/         %td= c.level_id
+/         %td
+/           = link_to 'Edit', {:action => "edit", :id => c.id}
+/           |
+/         %td= link_to "Delete", {:action => 'delete', :id => c.id}, data: {:confirm => "Are you sure you want to delete this record?"}
+/ %p
+/ = link_to 'Back', {:action => 'list'}

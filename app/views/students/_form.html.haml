@@ -1,0 +1,25 @@
+%table.table
+  %thead
+    %tr
+      %th{:scope => "col"} #
+      %th{:scope => "col"} name
+      %th{:scope => "col"} fathername
+      %th{:scope => "col"} email_id
+      %th{:scope => "col"} contact_no
+      %th{:scope => "col"} date_of_birth
+      %th{:scope => "col"} date_of_joining
+      %th{:scope => "col"} address
+      %th{:scope => "col"} avatar
+
+  %tbody
+    - @students.each do |c|
+      %tr
+        %th{:scope => "row"}
+        %td= c.name
+        %td= c.fathername
+        %td= c.email_id
+        %td= c.contact_no
+        %td= c.date_of_birth
+        %td= c.date_of_joining
+        %td= c.address
+        %td= image_tag c.avatar.url(:thumb)

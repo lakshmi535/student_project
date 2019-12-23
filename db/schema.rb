@@ -10,12 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_12_133010) do
+ActiveRecord::Schema.define(version: 2019_12_18_124908) do
+
+  create_table "exams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "exam_name"
+  end
 
   create_table "levels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "level_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "marks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "exam_type"
+    t.integer "maths_marks"
+    t.integer "hindi_marks"
+    t.integer "telugu_marks"
+    t.integer "level_id"
+    t.integer "student_id"
+    t.integer "exam_id"
   end
 
   create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -36,6 +54,12 @@ ActiveRecord::Schema.define(version: 2019_12_12_133010) do
     t.string "avatar_content_type"
     t.bigint "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string "fathername"
+    t.string "contact_no"
+    t.text "address"
+    t.string "email_id"
+    t.date "date_of_birth"
+    t.date "date_of_joining"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

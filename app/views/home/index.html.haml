@@ -1,1 +1,16 @@
-= render partial: 'carousel' 
+- unless user_signed_in?
+  = render partial: 'carousel' 
+/ %ul.nav.nav-tabs
+/   %li.nav-item
+/     %a.nav-link.active
+/       = link_to('Student Detailes',  students_list_path)
+/   %li.nav-item
+/     %a.nav-link
+/       = link_to('Levels',  students_levels_path) 
+/   %li.nav-item
+/     %a.nav-link{:href => "#"} Link
+/   %li.nav-item
+/     %a.nav-link.disabled{"aria-disabled" => "true", :href => "#", :tabindex => "-1"} Disabled
+
+/ %li.active
+/         = link_to('Home',  students_list_path)

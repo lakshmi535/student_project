@@ -1,0 +1,5 @@
+$(".students_list").empty();
+var page_html = "#{escape_javascript( render partial: 'form', locals: { students: @students} )}"
+/ - binding.pry
+$(".students_list").append(page_html)
+

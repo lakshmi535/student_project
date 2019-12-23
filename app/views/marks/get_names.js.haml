@@ -1,0 +1,5 @@
+$('#mark_student_id').empty();
+
+- if @students.present?
+  - @students.each do |student|
+    $('#mark_student_id').append($('<option value="#{student.id}">#{student.name}</option>'));

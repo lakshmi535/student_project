@@ -10,29 +10,33 @@
 = form_for @student , url: students_create_path, html: { multipart: true } do |form|
   %p
     = form.label :name
-    %br/
     = form.text_field :name
   %p
     = form.label :level
     = form.collection_select(:level_id, Level.all, :id, :level_number)
   %p
-    = form.label :english_marks
-    %br/
-    = form.text_field :english_marks
+    = form.label :fathername
+    = form.text_field :fathername
   %p
-    = form.label :math_marks
-    %br/
-    = form.text_field :math_marks
+    = form.label :email_id
+    = form.text_field :email_id
   %p
-    = form.label :science_marks
-    %br/
-    = form.text_field :science_marks
+    = form.label :contact_no
+    = form.text_field :contact_no
+  %p
+    = form.label :date_of_birth
+    = form.text_field :date_of_birth
+  %p
+    = form.label :date_of_joining
+    = form.text_field :date_of_joining
+  %p
+    = form.label :address
+    = form.text_area :address
   %p
     = form.file_field :avatar
 
   %p
     = form.submit
   
-  / = submit_tag "Create"
+  = link_to 'Back', {:action => 'list'}
 %hr/
-= link_to 'Back', {:action => 'list'}

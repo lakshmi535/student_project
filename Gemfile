@@ -29,6 +29,7 @@ gem 'devise'
 
 gem 'jquery-rails'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem 'simple_form'
 gem 'pry'
 #gem 'mini_magick', '~> 4.9', '>= 4.9.5'
 

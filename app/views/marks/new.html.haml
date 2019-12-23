@@ -1,0 +1,12 @@
+= simple_form_for(@mark) do |f|
+  / = f.collection_radio_buttons :exam_id, Exam.all, :id , :exam_name
+  = f.label :level_id 
+  = f.collection_select :level_id, Level.all, :id, :level_number,:include_blank => 'Please Select'
+  = f.label :student_id
+  = f.collection_select :student_id, Student.all, :id, :name,:include_blank => 'Please Select'
+  = f.input :exam_id
+  = f.input :telugu_marks
+  = f.input :hindi_marks
+  = f.input :maths_marks 
+  = f.button :submit
+= link_to 'Back', students_list_path

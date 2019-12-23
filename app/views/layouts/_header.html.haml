@@ -4,13 +4,14 @@
       %a.navbar-brand{:href => "#"} WebSiteName
     %ul.nav.navbar-nav
       %li.active
-        = link_to('home',  students_list_path)
+        = link_to('Home',  students_list_path)
       %li
         = link_to('About Us',  home_about_us_path)
       %li
         = link_to('Branches',  home_branches_path)
       %li
         = link_to('Contact Us',  home_contact_us_path)
+     
     %ul.nav.navbar-nav.navbar-right.nav-pills
       - if user_signed_in? 
         %li

@@ -11,7 +11,8 @@ class StudentsController < ApplicationController
 		@levels = Level.all
 	end
 	def student_params
-		params.require(:student).permit(:name, :level_id, :english_marks, :math_marks, :science_marks,:avatar)
+		params.require(:student).permit(:name, :level_id, :fathername, :email_id, :contact_no, :date_of_birth,
+     :date_of_joining, :address,:avatar)
 	end
 	def create
 		@student = Student.new(student_params)
@@ -27,7 +28,7 @@ class StudentsController < ApplicationController
 		@levels = Level.all
 	end
 	def student_param
-		params.require(:student).permit(:name, :level_id, :english_marks, :math_marks, :science_marks,:avatar)
+		params.require(:student).permit(:name, :level_id, :fathername, :email_id, :contact_no,:date_of_birth, :date_of_joining, :address,:avatar)
 	 end
 	def update
 		@student = Student.find(params[:id])
@@ -46,8 +47,15 @@ class StudentsController < ApplicationController
 	def show_levels
 		@level = Level.find(params[:id])
 	end
-	def view
-		@students=Student.all
+	def levels
+		
+	end	
+	def get_students
+		@students=Student.where(:level_id => params[:state])
+		respond_to do |format|
+        	format.js
+      	end 
+
 	end	
 	
 end

@@ -1,0 +1,7 @@
+/ - binding.pry
+= simple_form_for(@exam) do |f|
+  = f.collection_select :exam_name, Exam.all, :id, :exam_name,:include_blank => 'Please Select' 
+/ = form_tag :action => 'create' do
+/   %p
+/     %label{for: "exams_exam_name"}>exams
+/     = select_tag "exam", options_from_collection_for_select(Exam.all, "id", "exam_name"), :include_blank => 'Please Select'  
